@@ -1,14 +1,26 @@
 {
-  "name": "discord-video-mod-bot",
-  "version": "1.0.0",
-  "description": "Discord bot that deletes messages in a channel that don't contain a video",
-  "main": "index.js",
-  "type": "commonjs",
+  "name": "money-factory",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "workspaces": ["packages/*", "apps/*"],
   "scripts": {
-    "start": "node index.js"
+    "dev": "concurrently -k -n server,web -c blue,magenta \"npm:dev -w @mf/server\" \"npm:dev -w @mf/web\"",
+    "dev:mock": "cross-env MOCK_AGENTS=1 npm run dev",
+    "build": "npm run build -w @mf/web",
+    "start": "npm run build && npm run start -w @mf/server",
+    "assets": "tsx scripts/gen-assets.ts",
+    "typecheck": "tsc -p packages/shared && tsc -p apps/server && tsc -p apps/web",
+    "test": "vitest run"
   },
-  "dependencies": {
-    "discord.js": "^14.15.3",
-    "dotenv": "^16.4.5"
+  "devDependencies": {
+    "concurrently": "^9.2.1",
+    "cross-env": "^10.1.0",
+    "tsx": "^4.20.6",
+    "typescript": "^5.9.3",
+    "vitest": "^3.2.4",
+    "@types/node": "^22.18.0",
+    "pngjs": "^7.0.0",
+    "@types/pngjs": "^6.0.5"
   }
 }
