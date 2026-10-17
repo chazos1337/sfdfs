@@ -11,7 +11,7 @@ export interface InjectionHit {
 
 const FREEZE: Array<[string, RegExp]> = [
   ['ignore previous instructions', /\b(ignore|disregard|forget)\b[^.\n]{0,20}\b(all |any |the |your )?(previous|prior|above|earlier|system)\b[^.\n]{0,15}\b(instructions?|prompts?|rules|messages?)/i],
-  ['send funds to', /\b(send|transfer|wire|move|deposit)\b[^.\n]{0,40}\b(funds|money|crypto|tokens?|coins?|eth|sol|usdc|usdt|btc|balance|payment)\b[^.\n]{0,30}\bto\b[^.\n]{0,10}(0x[0-9a-f]{6,}|address|wallet|this|me|us|[1-9A-HJ-NP-Za-km-z]{32,44})/i],
+  ['send funds to', /\b(send|transfer|wire|move|deposit)\b[^.\n]{0,40}\b(funds|money|crypto|tokens?|coins?|eth|sol|usdc|usdt|btc|balance|payment)\b[^.\n]{0,30}\bto\b[^.\n]{0,10}(0x[0-9a-f]{6,}|address|wallet|this|me|us|[1-9A-HJ-NP-Za-km-z]{32,44})\b/i],
   ['new instructions', /\b(new|updated|real|actual)\s+(instructions|task|orders)\s*[:\-]/i],
   ['you are now', /\byou are now\b|\bact as (an?|the) (admin|developer|system)\b/i],
   ['system prompt', /\b(system prompt|developer message|jailbreak)\b/i],

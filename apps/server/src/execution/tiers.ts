@@ -78,7 +78,7 @@ const PROFILES: Record<string, Record<string, [Tier, string | null]>> = { paybox
 // dangerous patterns are checked first.
 const PATTERNS: Array<[RegExp, Tier, string | null]> = [
   [/(secret|seed|mnemonic|private.?key|credential|password|oauth|token|api.?key|export)/i, 3, null],
-  [/(filter|forward.?rule|auto.?reply|vacation|delegate|webhook|settings|permission|account.?change)/i, 3, null],
+  [/(filter|forwarding|forward.?rule|auto.?forward|auto.?reply|vacation|delegate|webhook|settings|permission|account.?change)/i, 3, null],
   [/(bridge|allowance|approve_?token|set.?approval)/i, 3, null],
   [/(delete|remove|trash|archive|move|label|update)/i, 2, null],
   [/(swap|trade)/i, 2, 'swap'],
