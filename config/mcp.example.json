@@ -1,0 +1,16 @@
+{
+  "servers": {
+    "paybox": {
+      "profile": "paybox",
+      "type": "http",
+      "url": "${PAYBOX_MCP_URL}",
+      "headers": { "Authorization": "Bearer ${PAYBOX_TOKEN}" }
+    },
+    "agentmail": {
+      "profile": "agentmail",
+      "type": "http",
+      "url": "https://mcp.agentmail.to/mcp",
+      "headers": { "x-api-key": "${AGENTMAIL_API_KEY}" }
+    }
+  }
+}
