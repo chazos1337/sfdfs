@@ -1,0 +1,102 @@
+@import "tailwindcss";
+
+@theme {
+  --font-pixel: "Silkscreen", ui-monospace, monospace;
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+  --color-ink-950: #070b18;
+  --color-ink-900: #0b1124;
+  --color-ink-850: #0f1730;
+  --color-ink-800: #131d3b;
+  --color-ink-700: #1b2852;
+  --color-ink-600: #263769;
+  --color-ink-500: #34498a;
+  --color-ink-400: #5a6fb0;
+  --color-ink-300: #8a9bd0;
+  --color-ink-200: #b8c4ea;
+  --color-ink-100: #e4eaff;
+
+  --color-gold: #ffd166;
+  --color-gold-dim: #b8913a;
+  --color-good: #6fdc8c;
+  --color-warn: #ffb454;
+  --color-bad: #ff5c7a;
+  --color-info: #6cb6ff;
+  --color-live: #ff8f3f;
+}
+
+html, body, #root { height: 100%; }
+body {
+  margin: 0;
+  background: var(--color-ink-950);
+  color: var(--color-ink-100);
+  font-family: var(--font-sans);
+  font-size: 13px;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Chunky pixel-game frame: thick border plus a hard inner/outer shadow. */
+.px-frame {
+  border: 3px solid var(--color-ink-600);
+  background: var(--color-ink-850);
+  box-shadow: inset 0 0 0 2px var(--color-ink-950), 4px 4px 0 0 rgba(0, 0, 0, 0.45);
+}
+.px-frame-gold {
+  border: 3px solid var(--color-gold);
+  background: #2a2410;
+  box-shadow: inset 0 0 0 2px #120f05, 0 0 18px 2px rgba(255, 209, 102, 0.35), 4px 4px 0 0 rgba(0, 0, 0, 0.45);
+}
+.px-btn {
+  font-family: var(--font-pixel);
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  border: 2px solid var(--color-ink-500);
+  background: var(--color-ink-700);
+  color: var(--color-ink-100);
+  padding: 4px 10px;
+  box-shadow: inset -2px -2px 0 0 rgba(0, 0, 0, 0.35), inset 2px 2px 0 0 rgba(255, 255, 255, 0.08);
+  cursor: pointer;
+  white-space: nowrap;
+}
+.px-btn:hover:not(:disabled) { background: var(--color-ink-600); }
+.px-btn:active:not(:disabled) { box-shadow: inset 2px 2px 0 0 rgba(0, 0, 0, 0.35); transform: translateY(1px); }
+.px-btn:disabled { opacity: 0.45; cursor: not-allowed; }
+.px-btn.on { background: var(--color-gold); color: #1a1405; border-color: #fff0c2; }
+.px-btn.good { background: #1f5a33; border-color: var(--color-good); }
+.px-btn.good:hover:not(:disabled) { background: #277243; }
+.px-btn.bad { background: #6a1c2b; border-color: var(--color-bad); }
+.px-btn.bad:hover:not(:disabled) { background: #85243a; }
+.px-btn.gold { background: var(--color-gold); color: #1a1405; border-color: #fff0c2; }
+
+.px-input {
+  background: var(--color-ink-950);
+  border: 2px solid var(--color-ink-600);
+  color: var(--color-ink-100);
+  padding: 4px 8px;
+  outline: none;
+}
+.px-input:focus { border-color: var(--color-gold); }
+
+.glow-pulse { animation: glow 1.6s ease-in-out infinite; }
+@keyframes glow {
+  0%, 100% { box-shadow: inset 0 0 0 2px #120f05, 0 0 10px 1px rgba(255, 209, 102, 0.3), 4px 4px 0 0 rgba(0, 0, 0, 0.45); }
+  50% { box-shadow: inset 0 0 0 2px #120f05, 0 0 26px 6px rgba(255, 209, 102, 0.6), 4px 4px 0 0 rgba(0, 0, 0, 0.45); }
+}
+.blink { animation: blink 1s steps(2, start) infinite; }
+@keyframes blink { to { visibility: hidden; } }
+
+/* Thin pixel scrollbars */
+* { scrollbar-width: thin; scrollbar-color: var(--color-ink-600) var(--color-ink-900); }
+
+.md h1 { font-family: var(--font-pixel); font-size: 18px; margin: 0.6em 0 0.4em; color: var(--color-gold); }
+.md h2 { font-family: var(--font-pixel); font-size: 14px; margin: 1em 0 0.4em; color: var(--color-ink-100); }
+.md h3 { font-weight: 700; margin: 0.8em 0 0.3em; }
+.md p { margin: 0.5em 0; line-height: 1.5; }
+.md ul { list-style: disc; padding-left: 1.4em; }
+.md ol { list-style: decimal; padding-left: 1.4em; }
+.md a { color: var(--color-info); text-decoration: underline; }
+.md code { font-family: var(--font-mono); background: var(--color-ink-950); padding: 0 4px; }
+.md table { border-collapse: collapse; margin: 0.5em 0; }
+.md td, .md th { border: 1px solid var(--color-ink-600); padding: 2px 6px; }
