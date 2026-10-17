@@ -1,0 +1,8 @@
+node_modules/
+dist/
+data/*
+!data/.gitkeep
+.env
+config/mcp.json
+*.log
+test-results/
